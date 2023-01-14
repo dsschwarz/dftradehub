@@ -9,7 +9,6 @@ const connectionString = process.env.ATLAS_URI;
 module.exports = {
     getResolvers: (request) => ({
         authUser: async () => {
-            console.log("Returning auth payload for user", request.user)
             return request.user;
         }
     }),
