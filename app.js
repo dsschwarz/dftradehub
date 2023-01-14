@@ -17,8 +17,15 @@ authRoutes.setupAuth(app);
 
 // Construct a schema, using GraphQL schema language
 var schema = buildSchema(`
+  type AvatarsPayload {
+    small: String!
+    medium: String!
+    large: String!
+  }
   type AuthPayload {
-    name: String!
+    displayName: String!
+    profileUrl: String!
+    avatars: AvatarsPayload!
   }
   type Query {
     authUser: AuthPayload

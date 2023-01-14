@@ -23,6 +23,8 @@
     "express-session": "^1.17.3",
     "graphql": "^15.8.0",
     "mongodb": "^4.4.1",
+    "passport": "^0.6.0",
+    "passport-steam": "^1.0.17",
     "restify-errors": "^8.0.2"
   },
   "devDependencies": {
