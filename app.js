@@ -9,8 +9,6 @@ var { buildSchema } = require('graphql');
 // get MongoDB driver connection
 const dbo = require('./server/db/conn');
 const authRoutes = require('./server/auth/routes');
-const admin = require('./server/admin');
-const actions = require('./server/actions');
 const { ObjectId } = require('mongodb');
 
 authRoutes.setupAuth(app);
@@ -37,9 +35,7 @@ var schema = buildSchema(`
 
 // The root provides a resolver function for each API endpoint
 var root = (request) => ({
-  ...actions.getResolvers(request),
   ...authRoutes.getResolvers(request),
-  ...admin.getResolvers(request),
 });
 
 app.use('/graphql', graphqlHTTP((request) => ({
